@@ -51,6 +51,31 @@ define :passagemDois do |root, repeats|
   end
 end
 
+pausaPassagemTres=-1
+define :passagemTres do |root, repeats|
+  repeats.times do
+    in_thread do
+      loop do
+        
+        if (pausaPassagemTres<0)
+          #Começo Repetição
+          tick
+          use_synth :saw
+          play (knit :d3,4,:e3,4,:c3,4,:a3,4).look
+          sleep (ring e+s,e,s,e).look
+          #Fim Repetição
+          
+        else
+          stop
+          
+        end
+        
+      end
+    end
+    
+  end
+end
+
 pausaPassagemQuatro=-1
 define :passagemQuatro do |root, repeats|
   repeats.times do
